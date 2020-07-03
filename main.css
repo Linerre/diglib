@@ -1,0 +1,46 @@
+*{
+	box-sizing: border-box;
+	border: 1pt solid #81A1C1;
+}
+
+
+/* A book section */
+/* cover img*/
+.cover {
+	/*float: left;*/
+
+}
+
+.img {
+	display: block;
+	margin-left: auto;
+	margin-right:auto;
+}
+
+/* citation */
+.biblio {
+	margin-left: auto;
+	margin-right:auto;
+}
+
+.title {
+	font-size: 20pt;
+	font-family: sans-serif;
+	font-weight: bold;
+}
+
+.author, 
+.date, 
+.publisher, 
+.isbn, 
+.callN {
+	font-size: 16pt;
+	font-family: serif;
+	font-weight: normal;
+}
+
+
+/* barcode */
+.hide {
+	display: none;
+}
