@@ -46,3 +46,12 @@
 .hide {
 	display: none;
 }
+
+/* Availability */
+.avail {
+	color: green;
+}
+
+.unavail {
+	color: grey;
+}

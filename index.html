@@ -11,7 +11,9 @@
 			<img src="images/case_in_point.jpg" alt="Case in Point">
 			<!-- each book has an id attr and its value = barcode -->
 		</div>
-		<button class="request" id="123456789">Check Out</button>
+		<button class="request" id="123456789" onclick="checkOut()">Check Out</button>
+		<br>
+		<span id="123456789-status">Available</span>
 		<div class="biblio">
 			<span class="title">Case in Point: Graph analysis for consulting and case interviews</span>
 			<br>
@@ -22,5 +24,13 @@
 			<span class="barcode hide">123456789</span>
 		</div>
 	</div>
+	<script>
+		function checkOut()
+{
+	// var item = document.getElementById('123456789');
+	document.getElementById('123456789-status').innerText = 'checkout to you';
+	document.getElementById('123456789-status').style.color = 'grey';
+}
+	</script>
 </body>
 </html>
