@@ -1,31 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="main.css">
-	<title>CDL</title>
-</head>
-<body>
-	<div class="item">
-		<div class="cover">
-			<img src="images/case_in_point.jpg" alt="Case in Point">
-			<!-- each book has an id attr and its value = barcode -->
-		</div>
-		<button class="request" id="123456789" onclick="checkOut()">Check Out</button>
-		<br>
-		<span id="123456789-status">Available</span>
-		<div class="biblio">
-			<span class="title">Case in Point: Graph analysis for consulting and case interviews</span>
-			<br>
-			<span class="publisher">Santa Barbara, CA : Burgee Press</span><br>
-			<span class="date">2016</span><br>
-			<span class="isbn">9781537143231</span><br>
-			<span class="callN">HD69.C6 C6742 2016</span><br>
-			<span class="barcode hide">123456789</span>
-		</div>
-	</div>
-	<script src="client.js">
-
-	</script>
-</body>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <h1>Case in Point</h1>
+    <button id="31124057295454" data-id='31124057295454'>Check out</button>
+    
+    <script>
+    document.getElementById("31124057295454").addEventListener("click", doStuff);
+    
+    function doStuff(){
+    
+      var itemBarcode = document.querySelector('#')
+    
+      google.script.run.checkOut();
+    }
+    </script>
+  </body>
 </html>
+
+
