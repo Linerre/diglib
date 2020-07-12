@@ -13,13 +13,6 @@ function doGet() {
   
 }
 
-
-
-// tester: Ashley, ys78
-function checkOut(){
-  
-  var barcode = '31124057204449';
-  
   /*
    [  0          1           2          3        4          5           6            7       ]
    
@@ -35,6 +28,29 @@ function checkOut(){
  5  titlen
   ------------------------------------------------------------------------------------------
   */
+
+
+  /*
+   [     0             1          2        3         4          5           6            7       ]
+   
+         1             2          3        4         5          6           7            8
+ 1 | loan time  |  PatronID  |  Title |  call#  | barcode  |  Status  |  cdl url  |  Due Date/Time |
+   -----------------------------------------------------------------------------------------
+ 2              |            | ...
+  ------------------------------------------------------------------------------------------
+ 3  
+  ------------------------------------------------------------------------------------------
+ 4  
+  ------------------------------------------------------------------------------------------
+ 5  
+  ------------------------------------------------------------------------------------------
+  */
+  
+
+// tester: Ashley, ys78
+function checkOut(){
+  
+  var barcode = '31124057204449';
    
   // [[b1, dUrl1, bUrl1], [b2, dUrl2, bUrl1], ... [bn, dUrln, bUrl1]]
   // may need to expand to the whole row to cater for email template
@@ -49,7 +65,7 @@ function checkOut(){
   Logger.log('file Info:', fileInfo);
   
   var fileId = fileIdPattern.exec(fileInfo[0][6]).groups.fid;
-  Logger.log('fileId: ', fileId)
+  Logger.log('fileId: ', fileId);
   
 //  var file = DriveApp.getFileById(fileId);
   
