@@ -7,11 +7,22 @@ var fileIdPattern = /\/(?<fid>[a-zA-z0-9_-]{5,})\//gm;
 
 
 
+
+/* -------------- TIME SETTINGS -------------- */
+// may need to change to 2 days
+var fourHourLoan = 4 * 60 * 60 * 1000;
+
+// possible to be entered via GUI from a spreadsheet?
+var semesterLoan = new Date('2020-09-14');
+
+
+
 function doGet() {
 
   return HtmlService.createHtmlOutputFromFile('index');
   
 }
+
 
   /*
    [  0          1           2          3        4          5           6            7       ]
@@ -30,6 +41,7 @@ function doGet() {
   */
 
 
+
   /*
    [     0             1          2        3         4          5           6            7       ]
    
@@ -45,7 +57,7 @@ function doGet() {
  5  
   ------------------------------------------------------------------------------------------
   */
-  
+
 
 // tester: Ashley, ys78
 function checkOut(){
@@ -60,28 +72,45 @@ function checkOut(){
                                        bookSheet.getLastColumn()).getValues();
 
   //target file information
-  //[[barcode, durl, burl]]
-  var fileInfo = searchRange.filter(target => target[5] === barcode);
+  var filter = searchRange.filter(target => target[5] === barcode);
+  
+  // to be used for email template and circlog
+  var fileInfo = filter[0];
   Logger.log('file Info:', fileInfo);
   
-  var fileId = fileIdPattern.exec(fileInfo[0][6]).groups.fid;
-  Logger.log('fileId: ', fileId);
   
+
+
+  
+  // to check out
+  try {
+
+    var fileId = fileIdPattern.exec(fileInfo[6]).groups.fid;
+    Logger.log('fileId: ', fileId); 
 //  var file = DriveApp.getFileById(fileId);
-  
+//  Logger.log('The file chekced out to Ashley.');
 //  file.addViewer('ys78@nyu.edu');
   
-  logCirc(fileInfo)
   
-//  Logger.log('The file chekced out to Ashley.');
-
+    // time stamp
+    var loanTime = new Date();
+    var dueTime = semesterLoan;
+    var loanTimeStr = loanTime.toLocaleString([], {dateStyle: 'short', timeStyle: 'short'});
+    var dueTimeStr = dueTime.toLocaleString([], {dateStyle: 'short', timeStyle: 'short'})
+    
+    
+    // still lacking PatronID
+    var record = [loanTimeStr, fileInfo[0], fileInfo[4], fileInfo[5], fileInfo[6], 'None', dueTimeStr, 'Self Check Loan'];
+    circLog.appendRow(record);
+    
+  } catch (e) {
+    Logger.log('Failed to check out. Error: ', e.toString());
+  }
 }
 
 
-function logCirc(fileinfo) {
-
-  
-  
-  
+function logCirc(record) {   
 }
 
+function timeStamp() {
+}
