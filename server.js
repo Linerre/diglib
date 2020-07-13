@@ -108,6 +108,9 @@ function checkOut(){
   }
 }
 
+function changePermission() {
+  //
+}
 
 function logCirc(record) {   
 }
