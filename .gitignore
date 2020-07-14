@@ -1,2 +1,5 @@
 # ignore json files
 *.json
+
+# hide images
+images/
