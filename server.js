@@ -1,4 +1,4 @@
-var sheetsUrl = 'https://docs.google.com/spreadsheets/d/1ujtfzGHXrU_AY-ABTFHhIfoOS10Yao5a8z8NQu_4Ykg/edit#gid=692067259';
+var sheetsUrl;
 var bookSheet = SpreadsheetApp.openByUrl(sheetsUrl).getSheetByName('books');
 var circLog   = SpreadsheetApp.openByUrl(sheetsUrl).getSheetByName('circ-log');
 
