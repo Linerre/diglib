@@ -108,8 +108,20 @@ function checkOut(){
   }
 }
 
-function changePermission() {
-  //
+function updateFilePermission(userinfo, fileId) {
+
+ Drive.Permissions.insert(
+  {
+    "role": "reader",
+     "type": "user",
+     "value": `${userinfo}`
+   },
+   fileId,
+  {
+   "supportsAllDrives": true,
+   "sendNotificationEmails": false,
+  });
+
 }
 
 function logCirc(record) {   
