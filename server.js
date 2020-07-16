@@ -96,7 +96,7 @@ function checkOut(){
     var loanTime = new Date();
     var dueTime = semesterLoan;
     var loanTimeStr = loanTime.toLocaleString([], {dateStyle: 'short', timeStyle: 'short'});
-    var dueTimeStr = dueTime.toLocaleString([], {dateStyle: 'short', timeStyle: 'short'})
+    var dueTimeStr = dueTime.toLocaleString([], {dateStyle: 'short', timeStyle: 'short'})；
     
     
     // still lacking PatronID
@@ -122,10 +122,4 @@ function updateFilePermission(userinfo, fileId) {
    "sendNotificationEmails": false,
   });
 
-}
-
-function logCirc(record) {   
-}
-
-function timeStamp() {
 }
