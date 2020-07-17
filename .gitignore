@@ -3,3 +3,6 @@
 
 # hide images
 images/
+
+# hide useless files
+depricated.js
