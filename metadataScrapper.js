@@ -24,18 +24,12 @@ var authorBlock = /<td id="bib-author-cell">.*?<\/td>/gm,
 
 /* ------------- drive and sheets ------------- */
 const driveFolderId = 'id1';
-const spreadSheetId = 'id2;
+const spreadSheetId = 'id2';
 function fetchWorldCat(url, barcode) {
-//  var url = 'https://www.worldcat.org/title/digital-design-and-computer-architecture/oclc/1047882417&referer=brief_results';
   // as if the two are passed to the func
-  var barcode = 'barcode';
   var barcodePat = new RegExp(barcode);
-  var url = 'https://www.worldcat.org/title/how-to-do-nothing-resisting-the-attention-economy/oclc/1120137744&referer=brief_results';
-//  var url = 'https://www.worldcat.org/title/desalination-water-from-water/oclc/1097462429';
-  
   var content = UrlFetchApp.fetch(url).getContentText('UTF-8');
 
-  
   var authorBox = authorBlock.exec(content)[0],
       authorname, 
       authors = [],
@@ -43,7 +37,6 @@ function fetchWorldCat(url, barcode) {
       title = worldTitle.exec(content),
       isbns = worldIsbn.exec(content);
   
-     
   // get all the author(s)
   while ((authorname = worldCatAuth.exec(authorBox)) !== null) {
     Logger.log(authorname);
@@ -80,7 +73,7 @@ function addBook(title, author, pub, isbn13, barcode) {
 
     if (file.getName().search(barcode) !== -1) {
       var correctUrl = file.getUrl();
-      break
+      break;
     } else {Logger.log('File not found.')}
   }
   
