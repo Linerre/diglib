@@ -6,3 +6,6 @@ images/
 
 # hide useless files
 depricated.js
+
+# hide log file
+develop\ log.md
