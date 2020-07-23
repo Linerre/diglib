@@ -2,22 +2,73 @@
 *::before,
 *::after {
 	box-sizing: border-box;
-	border: 1pt solid #81A1C1;
+	/*border: 1pt solid #81A1C1;*/
 }
 
 
-/* A book section */
-/* cover img*/
+/* header */
+.header {
+	margin: 10px;
+	padding: 5px;
+	text-align: center;
+
+	/*background-image: */
+}
+
+
+/* search box */
+.user-search {
+	margin: 10px auto;
+	padding: 5px;
+	text-align: center;
+
+}
+
+/* container: 1 row, 4 items */
+.container {
+	display: flex;
+	margin: 5px auto;
+	padding: 5px;
+	border: 1pt solid black;
+}
+
+.col {
+	flex: 1;
+	border: 1pt solid cyan;
+}
+
+.item-col {
+	display: flex;
+}
+
+.col ul, .col ul li {
+	list-style: none;
+	padding: 0 2px;
+	
+}
+
 .cover {
-	/*float: left;*/
-
+	/*border: 1px solid black;*/
+	flex: 1;
+	max-width: 50%;
+	/*max-height: 60%;*/
+	margin-right: 0;
+	padding-right: 0; 
 }
 
-.img {
-	display: block;
-	margin-left: auto;
-	margin-right:auto;
+.title {
+	font-size: 16pt;
+	font-family: sans-serif;
+	font-weight: bold;
+	padding-top: 0;
+	margin-top: 0;
+	margin-bottom: 3em;
 }
+
+.citation {
+	flex: 1;
+}
+
 
 /* citation */
 .biblio {
@@ -25,11 +76,7 @@
 	margin-right:auto;
 }
 
-.title {
-	font-size: 20pt;
-	font-family: sans-serif;
-	font-weight: bold;
-}
+
 
 .author, 
 .date, 

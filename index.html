@@ -1,11 +1,94 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="./main.css">
     <base target="_top">
   </head>
   <body>
-    <h1>Case in Point</h1>
-    <button id="31124057295454" data-id='31124057295454'>Check out</button>
+    <section>
+      <h1 class="header">Controlled Digital Learning Library</h1>
+    </section>
+
+    <section class="user-search">
+      <label for=""></label><br>
+      <input type="text" value="Search for a title">
+    </section>
+
+  <!-- one container = 4 items -->
+  <section class="container">
+    
+    <!-- book one -->
+    <div class="col">
+      <div class="item-col">
+        <img src="./images/case_in_point.jpg" alt="" class="cover">
+        <div class="citation">
+          <ul>
+            <li class="title">
+            Case in point: Graph analysis for consulting and case interviews
+            </li>
+            <li>Marc Cosentino author. Mukund Jain author.</li>
+            <li>Santa Barbara, CA : Burgee Press 2016</li>
+            <li>9781537143231</li>
+          </ul>
+        </div>
+      </div>
+      <button>Status</button>
+      <button id="31124057295454" data-id='31124057295454'>Check out</button>
+    </div>
+  
+    <!-- book two -->
+    <div class="col">
+      <h3 class="title">Situated learning</h3>
+      <div class="cover">
+        <img src="" alt="">
+      </div>
+      <div class="citation">
+        <ul>
+          <li>Author: </li>
+          <li>Publshier: </li>
+          <li>ISBN: </li>
+        </ul>
+        <button>Status</button>
+        <button id="item-31124057205370" data-bc="31124057205370">Check out</button>
+      </div>
+    </div>
+  
+    <!-- book three -->
+    <div class="col">
+      <h3 class="title">No Peotry</h3>
+      <div class="cover">
+        <img src="" alt="">
+      </div>
+      <div class="citation">
+        <ul>
+          <li>Author</li>
+          <li>Publshier</li>
+          <li>ISBN</li>
+          <li>Staus: <span></span></li>
+        </ul>
+        <button id="item-31124057204449" data-bc="31124057204449">Check out</button>
+      </div>
+    </div>
+
+
+    <!-- book four -->
+    <div class="col">
+      <h3 class="title">How to do nothing</h3>
+      <div class="cover">
+        <img src="" alt="">
+      </div>
+      <div class="citation">
+        <ul>
+          <li>Author</li>
+          <li>Publshier</li>
+          <li>ISBN</li>
+          <li>Staus: <span></span></li>
+        </ul>
+        <button id="item-31124057295454" data-bc="31124057295454">Check out</button>
+      </div>
+    </div>
+  </section>
+    
     
     <script>
     document.addEventListener('DOMContentLoaded', function(){
@@ -13,6 +96,7 @@
     });
      
     
+
     function statusUpdate(statusArray) {
      var statusWeb = document.querySelectorAll('span');
      for (var i = 0; i < statusWeb.length; i++) {
