@@ -8,6 +8,18 @@
     <button id="31124057295454" data-id='31124057295454'>Check out</button>
     
     <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      google.script.run.withSuccessHandler(statusUpdate).getStatus()
+    });
+     
+    
+    function statusUpdate(statusArray) {
+     var statusWeb = document.querySelectorAll('span');
+     for (var i = 0; i < statusWeb.length; i++) {
+        statusWeb[i].innerText = statusArray[i][1];
+      }
+    }
+
     document.getElementById("31124057295454").addEventListener("click", doStuff);
     
     function doStuff(){
