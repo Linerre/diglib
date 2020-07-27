@@ -24,67 +24,7 @@
 
 }
 
-/* container: 1 row, 4 items */
-.container {
-	margin: 5px auto;
-	padding: 5px;
-	border: 1pt solid black;
-}
 
-.item {
-	position: relative;
-	border: 1pt solid cyan;
-}
-
-
-.cover {
-	position: absolute;
-	left: 3px;
-	top: 3px;
-}
-
-.cover img {
-	max-width: 40%;
-}
-
-.title, 
-.citation, 
-.status-action {
-	margin-left: 10%;
-}
-
-.item-col {
-	display: flex;
-}
-
-/* list's li is in-line element */
-ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	
-}
-
-.citation {
-	flex: 1;
-}
-
-.title {
-	/*border: 1pt solid black;*/
-	font-size: 16pt;
-	font-family: sans-serif;
-	font-weight: bold;
-	padding-top: 0;
-	padding-left: 4px;
-	margin-top: 0;
-	margin-bottom: 0.8em;
-}
-
-.author, 
-.publisher, 
-.isbn {
-	padding-left: 5px;
-}
 
 
 /* buttons */
