@@ -1,0 +1,56 @@
+/* container: 1 row, 4 items */
+.container {
+	margin: 5px auto;
+	padding: 5px;
+	border: 1pt solid black;
+}
+
+.item {
+	border: 1pt solid cyan;
+	max-width: 30%;
+	overflow: auto;
+}
+
+.cover {
+	float: left;
+}
+
+.cover {	
+	max-width: 25%;
+	height: auto;
+	margin-right: 2px;
+}
+
+.citation {
+	border: 1pt solid red;
+	padding-right: 0; 
+}
+
+
+/* list's li is in-line element */
+.title {
+	/*border: 1pt solid black;*/
+	font-size: 16pt;
+	font-family: sans-serif;
+	font-weight: bold;
+	word-wrap: normal;
+	padding: 2px 2px;
+}
+
+.author, 
+.publisher, 
+.isbn {
+	padding-left: 5px;
+}
+
+.author::before {
+	content: 'Author: ';
+}
+
+.publisher::before {
+	content: 'Publisher: ';
+}
+
+.isbn::before {
+	content: 'ISBN: ';
+}
