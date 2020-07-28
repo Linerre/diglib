@@ -5,16 +5,6 @@
 	border: 1pt solid black;
 }
 
-.item {
-	border: 1pt solid cyan;
-	max-width: 30%;
-	overflow: auto;
-}
-
-.cover {
-	float: left;
-}
-
 .cover {	
 	max-width: 25%;
 	height: auto;
