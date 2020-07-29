@@ -1,18 +1,23 @@
-/* container: 1 row, 4 items */
-.container {
-	margin: 5px auto;
-	padding: 5px;
-	border: 1pt solid black;
+ul {
+	margin: 0 1px;
+	padding: 0 0;
 }
 
-.cover {	
-	max-width: 25%;
-	height: auto;
-	margin-right: 2px;
+/*.status::before {
+	content: 'Status: ';
+}*/
+
+.status {
+	display: inline-block;
+	background-color: #e0e0e0;
+	max-width: fit-content;
+
+	margin: 4px auto;
+	text-align: center;
 }
 
 .citation {
-	border: 1pt solid red;
+	/*border: 1pt solid red;*/
 	padding-right: 0; 
 }
 
@@ -20,17 +25,19 @@
 /* list's li is in-line element */
 .title {
 	/*border: 1pt solid black;*/
-	font-size: 16pt;
+	font-size: 14pt;
+	line-height: normal;
 	font-family: sans-serif;
 	font-weight: bold;
 	word-wrap: normal;
-	padding: 2px 2px;
+	padding: 1px 2px;
+	margin:0 0 5px 0;
 }
 
 .author, 
 .publisher, 
 .isbn {
-	padding-left: 5px;
+	font-size: 12pt;
 }
 
 .author::before {

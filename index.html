@@ -9,24 +9,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./items.css">
 
     </head>
   <body>
     <!-- banner -->
-    <section>
+    <section class="container">
       <h1 class="header">Controlled Digital Learning Library</h1>
     </section>
     
     <!-- search box -->
-    <section class="user-search">
+    <section class="container user-search">
       <label for=""></label><br>
       <input type="text" value="Search for a title">
     </section>
 
   <!-- one container = 4 items -->
-  <section class="container">
+<!--   <section class="container"> -->
     
     <!-- book one -->
 <!--     <div class="item">
@@ -46,23 +46,63 @@
     </div> -->
   
     <!-- book two -->
-    <div class="col s12 m7">
-    <h2 class="header">Horizontal Card</h2>
-    <div class="card horizontal">
-      <div class="card-image" style="max-width: 10%">
-        <img src="images/case_in_point.jpg">
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
+    <div class="row">
+      <div class="col s4">
+        <h4 class="header">
+        <!-- Case in point: Graph analysis for consulting and case interviews -->
+        </h4>
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="images/case_in_point.jpg">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content" 
+            style="padding-right: 2px;
+                   padding-left: 2px;
+                   margin-left: 1px; 
+                   margin-right: 1px;">
+              <ul>
+                <li class="title">Case in point. Graph analysis for consulting and case interviews</li>
+                <li class="author">Marc Cosentino; Mukund Jain</li>
+                <li class="publisher">Santa Barbara, CA : Burgee Press</li>
+                <li class="isbn">9781537143231</li>
+              </ul>
+              <span class="status">Available</span>
+            </div>
+            <div class="card-action">
+              <button>Action</button>
+              <!-- <a href="#">This is a link</a> -->
+            </div>
+          </div>
         </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
+      </div>
+
+      <div class="col s3">
+        <h4 class="header">
+        <!-- Case in point: Graph analysis for consulting and case interviews
+        </h4>
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="images/case_in_point.jpg">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p>I am a very simple card. I am good at containing small bits of information.</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
         </div>
       </div>
+
     </div>
-  </div>
+
+    <div class="row">
+      
+    </div>
     
+<!--   </section>   -->
     <script>
     document.addEventListener('DOMContentLoaded', function(){
       google.script.run.withSuccessHandler(statusUpdate).getStatus()
