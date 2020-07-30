@@ -3,17 +3,25 @@ ul {
 	padding: 0 0;
 }
 
-/*.status::before {
+.status::before {
 	content: 'Status: ';
-}*/
+}
 
 .status {
-	display: inline-block;
-	background-color: #e0e0e0;
-	max-width: fit-content;
+	margin: 10px auto;
+	padding: 0 10px;
+	/*text-align: center;*/
+	/*border: 1pt solid red;*/
+}
 
-	margin: 4px auto;
-	text-align: center;
+.avail {
+	background-color: #4db6ac;
+	color: white;
+}
+
+.out {
+	background-color: #ff5252;
+	color: white;
 }
 
 .citation {
