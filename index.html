@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./items.css">
 
-    </head>
+  </head>
+
   <body>
     <!-- banner -->
     <section class="container">
@@ -25,29 +26,10 @@
       <input type="text" value="Search for a title">
     </section>
 
-  <!-- one container = 4 items -->
-<!--   <section class="container"> -->
-    
-    <!-- book one -->
-<!--     <div class="item">
-      <img src="./images/case_in_point.jpg" alt="" class="cover">
-      <div class="citation">
-        <div class="title">
-        Case in point: Graph analysis for consulting and case interviews
-        </div>
-        <div class="author">Marc Cosentino author. Mukund Jain author.</div>
-        <div class="publisher">Santa Barbara, CA : Burgee Press 2016</div>
-        <div class="isbn">9781537143231</div>
-      </div>
-      <div class="status-action">
-        <button class="status">Checked Out</button>
-        <button class="checkout" id="item-31124057295454" data-id='31124057295454'>Check out</button>
-      </div>
-    </div> -->
-  
-    <!-- book two -->
+    <!-- row one = 3 books -->
     <div class="row">
-      <div class="col s4">
+      <!-- book one -->
+      <div class="col s3">
         <h4 class="header">
         <!-- Case in point: Graph analysis for consulting and case interviews -->
         </h4>
@@ -78,30 +60,75 @@
           </div>
         </div>
       </div>
-
+      <!-- book two -->
       <div class="col s3">
         <h4 class="header">
-        <!-- Case in point: Graph analysis for consulting and case interviews
+        <!-- Case in point: Graph analysis for consulting and case interviews -->
         </h4>
         <div class="card horizontal">
           <div class="card-image">
-            <img src="images/case_in_point.jpg">
+            <img src="images/Situated_learning.jpg">
           </div>
           <div class="card-stacked">
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.</p>
+            <div class="card-content" 
+            style="padding-right: 2px;
+                   padding-left: 2px;
+                   padding-bottom: 2px;
+                   padding-top: 2px;
+                   margin-left: 1px; 
+                   margin-right: 1px;">
+              <ul>
+                <li class="title">Situated learning: legitimate peripheral participation</li>
+                <li class="author">Marc Cosentino; Mukund Jain</li>
+                <li class="publisher">Jean. Lave Etienne Wenger</li>
+                <li class="isbn">9780521413084</li>
+              </ul>
             </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
+            <div class="status">Checked Out</div>
+            <div class="card-action" style="margin-left: auto; margin-right: auto;">
+              <a class="waves-effect waves-light btn">Check Out</a>
+              <!-- <a href="#">This is a link</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s3">
+        <h4 class="header">
+        <!-- Case in point: Graph analysis for consulting and case interviews -->
+        </h4>
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="images/no_peotry.jpg">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content" 
+            style="padding-right: 2px;
+                   padding-left: 2px;
+                   padding-bottom: 2px;
+                   padding-top: 2px;
+                   margin-left: 1px; 
+                   margin-right: 1px;">
+              <ul>
+                <li class="title">No Poetry: selected poems of Che Qianzi</li>
+                <li class="author">Qianzi Che author. Yunte Huang translator</li>
+                <li class="publisher">New York : Polymorph editions</li>
+                <li class="isbn">9780578569987</li>
+              </ul>
+            </div>
+            <div class="status">Checked Out</div>
+            <div class="card-action" style="margin-left: auto; margin-right: auto;">
+              <a class="waves-effect waves-light btn">Check Out</a>
+              <!-- <a href="#">This is a link</a> -->
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="row">
+
+
       
-    </div>
     
 <!--   </section>   -->
     <script>
@@ -129,6 +156,7 @@
     </script>
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
+
   </body>
 </html>
 
