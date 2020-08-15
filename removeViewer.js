@@ -1,45 +1,69 @@
-function removeViewer() {
-  var fileIdPattern = /\/(?<fid>[a-zA-z0-9_-]{5,})\//gm;
-  var now = new Date();
-//  var newnow = new Date(now.getTime() + 15*60*1000);
-  var retnTimeStr = now.toLocaleString([], {dateStyle: 'short', timeStyle: 'short'});
-  var searchRange = circLog.getRange(bookSheet.getFrozenRows() + 1, 
-                                     bookSheet.getFrozenColumns() + 1, 
-                                     bookSheet.getLastRow(), 
-                                     bookSheet.getLastColumn())
-                                     .getValues();
-  
-  // filter out all that are (about to) due
-  // could be none: empty array
-  var filter = searchRange.filter(target => target[6] != "" && target[6] <= retnTimeStr  );
-  Logger.log(filter);
-//  var queryPara = {
-//    "supportsAllDrives": true
-//  };
-  
-  try {
-    for (var record of filter) {
-      Logger.log(record.length);
-      // remove viewer
-      var userInfo = record[5];
-      var fileId = fileIdPattern.exec(record[4]).groups.fid;
-      var file = DriveApp.getFileById(fileId);
+/*
+** My version
+  * find all the books that are overdue
+    * string => time?
+  * remove viewers from them
+    * removeViewer(emial)?
+  * set status to expire on circLog
+    * getRange(cell).setValue(expire)
+  * set status back to Available on bookSheet
+    * using barcode to locate items
+    * modularize this func?
+    * 
+*/
 
-      file.removeViewer(userInfo);
-      
-      // log
-      Logger.log('old record: ', record);
-      record[7] = 'Regular Return';
-      Logger.log('new record: ', record);
-      circLog.appendRow(record);
-    }
+
+
+
+function checkIn() {
+  var books = circLog.getRange(circLog.getFrozenRows() + 1, 
+                               circLog.getFrozenColumns() + 1, 
+                               circLog.getLastRow() - circLog.getFrozenRows(), 
+                               circLog.getLastColumn()).getValues();
+//  Logger.log(books);
+//  Logger.log(books.length);
+  
+  var now = new Date();
+  var nowTimeStr = now;
+  
+  for (var i = 0; i < books.length; i++) {
+    var book = books[i];   // get each book
+    var url = book[3];     // get CDL url
+    var fileId = url.match(/[-\w]{25,}/);
+    var title = book[1];   // get book title
+    var patron = book[4];
+    var dueTime = book[5]; // get the due time
+
+
     
-    // delete trigger
-    deleteTriggers();
-  } catch (e) {
-    Logger.log('Error found:', e.toString());
+//    Logger.log(fileId);
+    
+    
+    if (nowTimeStr > dueTime) {
+      var asset;
+      
+      // Skip the document if it has any kind of status
+      if (book[7]) {continue;}
+      
+      try {
+        if (fileId) {
+          asset = DriveApp.getFileById(fileId) ? DriveApp.getFileById(fileId) : DriveApp.getFolderById(fileId);
+//        var viewers = asset.getViewers();
+//        for (var i=0; i<viewers.length; i++) {
+//          Logger.log('Viewer: ', viewers[i].getEmail());
+//        }
+//        Logger.log(viewers[1].getEmail());
+          asset.removeViewer(patron);
+          Logger.log(patron);
+          circLog.getRange(i + 2, 8).setValue('Expired');
+        } 
+      } catch(e) {
+        Logger.log("Error occurred while removing patron: " + e.toString())
+      }
+    }
   }
 }
+
 
 function deleteTriggers() {
    var triggers = ScriptApp.getProjectTriggers();
