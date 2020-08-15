@@ -60,66 +60,72 @@ function doGet() {
 
 
 // tester: Ashley, ys78
-function checkOut(){
+function checkOut(barcode, netId){
   
-  var barcode = '31124057204449';
-   
-  // [[b1, dUrl1, bUrl1], [b2, dUrl2, bUrl1], ... [bn, dUrln, bUrl1]]
-  // may need to expand to the whole row to cater for email template
+  var patron = netId + '@nyu.edu';
   var searchRange = bookSheet.getRange(bookSheet.getFrozenRows() + 1, 
                                        bookSheet.getFrozenColumns() + 1, 
                                        bookSheet.getLastRow(), 
-                                       bookSheet.getLastColumn()).getValues();
+                                       bookSheet.getLastColumn())
+                                       .getValues();
 
-  //target file information
-  var filter = searchRange.filter(target => target[5] === barcode);
+  // fetch the file comlum&row
+  var filter = searchRange.filter(target => target[4] === barcode);
+  
+  // get the target item row number
+  // for status change later
+  var itemRowNum = searchRange.findIndex(item => item[4] === barcode) + 2; //offset frozen row(s) and array index
+  var itemType = bookSheet.getRange(itemRowNum, 7).getValue();
+ 
+  
+
   
   // to be used for email template and circlog
+/*
+**  col
+**   1        2          3            4          5         6           7           8           9
+** Title    Author    Publisher    ISBN-13    Barcode    Status    Item type    CDL url    Bobcat url
+**
+**  [0]      [1]        [2]          [3]        [4]       [5]         [6]         [7]         [8]
+*/ 
   var fileInfo = filter[0];
   Logger.log('file Info:', fileInfo);
+  Logger.log('target row num: ', itemRowNum);
   
   
-
-
   
   // to check out
   try {
 
-    var fileId = fileIdPattern.exec(fileInfo[6]).groups.fid;
+    var fileId = fileInfo[7].match(/[-\w]{25,}/);
     Logger.log('fileId: ', fileId); 
-//  var file = DriveApp.getFileById(fileId);
-//  Logger.log('The file chekced out to Ashley.');
-//  file.addViewer('ys78@nyu.edu');
-  
-  
+    
+    
+    // check out and disable email notification
+    updateFilePermission(patron, fileId);
+    // change corresponding status on the book sheet
+    bookSheet.getRange(itemRowNum, 6).setValue(ITEMSTATUS[0][1]); 
+     
     // time stamp
     var loanTime = new Date();
-    var dueTime = semesterLoan;
+    
+//    var dueTime = new Date(loanTime.getTime() + temp);
+    var dueTime;
+    itemType == ITEMTYPE[0][0] ? dueTime = semesterLoan : dueTime = new Date(loanTime.getTime() + fourHourLoan);
+    
     var loanTimeStr = loanTime.toLocaleString([], {dateStyle: 'short', timeStyle: 'short'});
-    var dueTimeStr = dueTime.toLocaleString([], {dateStyle: 'short', timeStyle: 'short'})；
-    
-    
-    // still lacking PatronID
-    var record = [loanTimeStr, fileInfo[0], fileInfo[4], fileInfo[5], fileInfo[6], 'None', dueTimeStr, 'Self Check Loan'];
-    circLog.appendRow(record);
+    var dueTimeStr = dueTime.toLocaleString([], {dateStyle: 'short', timeStyle: 'short'});
+
+    Logger.log(dueTimeStr);
+
+    var loanRecord = [loanTime, fileInfo[0], fileInfo[4], fileInfo[7], patron, dueTime, 'Self Check Loan'];
+//    var retnRecord = [loanTimeStr, fileInfo[0], fileInfo[4], fileInfo[5], fileInfo[6], user, dueTimeStr, 'Regular Return'];
+    circLog.appendRow(loanRecord);
+
+    // If the patron wants to check in before due date
+    // ask him/her to forward the check-out receipt email to us?
     
   } catch (e) {
     Logger.log('Failed to check out. Error: ', e.toString());
   }
-}
-
-function updateFilePermission(userinfo, fileId) {
-
- Drive.Permissions.insert(
-  {
-    "role": "reader",
-     "type": "user",
-     "value": `${userinfo}`
-   },
-   fileId,
-  {
-   "supportsAllDrives": true,
-   "sendNotificationEmails": false,
-  });
-
 }
