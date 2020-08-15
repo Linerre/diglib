@@ -129,3 +129,18 @@ function checkOut(barcode, netId){
     Logger.log('Failed to check out. Error: ', e.toString());
   }
 }
+
+
+function updateFilePermission(userinfo, fileId) {
+ Drive.Permissions.insert(
+  {
+    "role": "reader",
+     "type": "user",
+     "value": `${userinfo}`
+   },
+   fileId,
+  {
+   "supportsAllDrives": true,
+   "sendNotificationEmails": false,
+  });
+}
