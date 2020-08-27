@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-<!--     <link rel="stylesheet" href="./main.css">
-    <link rel="stylesheet" href="./layout.css">
-    <link rel="stylesheet" href="./searchbox.css">
-    <link rel="stylesheet" href="./items.css"> -->
+
+    
     <!--Import Google Icon Font-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+
+    
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="./items.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    
+        <!-- my css -->
+    <?!= include("item-css"); ?>
+    <?!= include("modal-css"); ?>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -20,23 +26,15 @@
       <h1 class="header">Controlled Digital Learning Library</h1>
     </section>
     
-    <!-- search box -->
-    <section class="container user-search">
-      <label for=""></label><br>
-      <input type="text" value="Search for a title">
-    </section>
-
-    <!-- row one = 3 books -->
+    <!-- row one = 4 books -->
     <div class="row">
       <!-- book one -->
       <div class="col s3">
-        <h4 class="header">
-        <!-- Case in point: Graph analysis for consulting and case interviews -->
-        </h4>
         <div class="card horizontal">
           <div class="card-image">
-            <img src="images/case_in_point.jpg">
+            <img src="https://lh3.googleusercontent.com/__xbItu9eOe4UdnrwGBoQdjmLHK_13bwMgh-REvry-Fu4DwXdfqIkPn9UeWSItov6yzKVugk4tmQgIMoOymlRIgX6HlFHRDLtzIkKFDPwXdqwaWnJKKKDsVXReUIeMwRkf_wnvpBxg=w2400">
           </div>
+         
           <div class="card-stacked">
             <div class="card-content" 
             style="padding-right: 2px;
@@ -52,22 +50,21 @@
                 <li class="isbn">9781537143231</li>
               </ul>
             </div>
-            <div class="status">Available</div>
+            <div class="status"></div>
             <div class="card-action" style="margin-left: auto; margin-right: auto;">
-              <a class="waves-effect waves-light btn" id="31124057204449">button</a>
+              <span class="hide">2</span>
+              <a class="waves-light btn request" id="31124057295454" onclick="openForm(this.id)"></a>
               <!-- <a href="#">This is a link</a> -->
             </div>
           </div>
         </div>
       </div>
-      <!-- book two -->
+      
+      <!-- book 2 -->
       <div class="col s3">
-        <h4 class="header">
-        <!-- Case in point: Graph analysis for consulting and case interviews -->
-        </h4>
         <div class="card horizontal">
           <div class="card-image">
-            <img src="images/Situated_learning.jpg">
+            <img src="https://lh3.googleusercontent.com/cWttbUbGLiiTD_aabE6Du-IeVWs7R1DOP76Vxwm-p3OCAtL7bKyZ_vZ5r6N6L5gx1ZYWnkCNdKlGmTXnoctJKC-vnh85adgsbusJnVrnubCwrWwzBbHRdb3Q8nIko2UdZh_m0vYVdQ=w2400">
           </div>
           <div class="card-stacked">
             <div class="card-content" 
@@ -84,22 +81,21 @@
                 <li class="isbn">9780521413084</li>
               </ul>
             </div>
-            <div class="status">Checked Out</div>
+            <div class="status"></div>
             <div class="card-action" style="margin-left: auto; margin-right: auto;">
-              <a class="waves-effect waves-light btn">Check Out</a>
+              <span class="hide">3</span>
+              <a class="waves-light btn request" id="31124057204449" onclick="openForm(this.id)"></a>
               <!-- <a href="#">This is a link</a> -->
             </div>
           </div>
         </div>
       </div>
 
+      <!-- book 3-->
       <div class="col s3">
-        <h4 class="header">
-        <!-- Case in point: Graph analysis for consulting and case interviews -->
-        </h4>
         <div class="card horizontal">
           <div class="card-image">
-            <img src="images/no_peotry.jpg">
+            <img src="https://lh3.googleusercontent.com/eqqTjU164dQuOrvuW8-2aB2dzDxa92blAGMJ8BViNO9QWs_YPhq3mXvvZ3k0R9bsHBsJJtEKuCr9vbGEoZl09RUZqihAU3alUyo7h_Kny_P1frWeKjXMFW1-aQjB_-KOIX-f1JgG-A=w2400">
           </div>
           <div class="card-stacked">
             <div class="card-content" 
@@ -111,67 +107,86 @@
                    margin-right: 1px;">
               <ul>
                 <li class="title">No Poetry: selected poems of Che Qianzi</li>
-                <li class="author">Qianzi Che author. Yunte Huang translator</li>
+                <li class="author">Qianzi Che. Yunte Huang translator</li>
                 <li class="publisher">New York : Polymorph editions</li>
                 <li class="isbn">9780578569987</li>
               </ul>
             </div>
-            <div class="status">Checked Out</div>
+            <div class="status"></div>
             <div class="card-action" style="margin-left: auto; margin-right: auto;">
-              <a class="waves-effect waves-light btn">Check Out</a>
+              <span class="hide">4</span>
+              <a class="waves-light btn request" id="31124057205370" onclick="openForm(this.id)"></a>
               <!-- <a href="#">This is a link</a> -->
             </div>
           </div>
         </div>
       </div>
+      
+      <div class="col s3">
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="https://lh3.googleusercontent.com/B1SRYGL0b3iuQc0HNCUmuMLwlcAh6uhcpJguGOvc0Pg-fHCc72qXIopOXb8r_SahDjLFFvzkJwnKA6FUyJr4Fn_JyXupN2147SMeSpnmQtcKxX-YdpU6Rjb5GI3g2WNAf48OBLrzrA=w2400">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content" 
+            style="padding-right: 2px;
+                   padding-left: 2px;
+                   padding-bottom: 2px;
+                   padding-top: 2px;
+                   margin-left: 1px; 
+                   margin-right: 1px;">
+              <ul>
+                <li class="title">How to do nothing : resisting the attention economy</li>
+                <li class="author">Jenny Odell</li>
+                <li class="publisher">Brooklyn, NY Melville House</li>
+                <li class="isbn">9781612197494</li>
+              </ul>
+            </div>
+            <div class="status"></div>
+            <div class="card-action" style="margin-left: auto; margin-right: auto;">
+              <span class="hide">5</span>
+              <a class="waves-light btn request" id="31124057205305" onclick="openForm(this.id)"></a>
+              <!-- <a href="#">This is a link</a> -->
+            </div>
+          </div>
+        </div>
+      </div>     
     </div>
-
-
-<div class="bg-modal">
+    
+    <?!= include('book-1-4'); ?>
+     
+<div class="bg-modal" id="bg-m">
   <div class="modal-content">
-    <div class="form-popup hide" id="myForm">
-     <form>
+    <div class="form-popup">
+     <form id="myForm">
+     
+         <div id="item-barcode" class="hide"></div>
          <label for="netid"><b>NetID</b></label>
-         <input type="text" placeholder="Enter NetID" name="netid" required>
+         <input type="text" placeholder="Enter NetID" id="netid" name="netid" required pattern="[a-zA-z]+[0-9]+">
  
 
-         <label for="psw"><b>Name</b></label>
-         <input type="text" placeholder="Enter Your Name" name="name" required>
-
-       <button type="submit" class="btn">Login</button>
-       <button type="button" class="btn cancel" onclick="closeForm()">Submit</button>
+         <label for="name"><b>Name</b></label>
+         <input type="text" placeholder="Enter Your Name" id="fname" name="name" required>
+       <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+       <button type="submit" class="btn submit" id="sub" onclick="collectPatron()">Submit</button>
     </form>
+   </div>
   </div>
 </div>
-      
-    
-<!--   </section>   -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      google.script.run.withSuccessHandler(statusUpdate).getStatus()
-    });
-     
-    
 
-    function statusUpdate(statusArray) {
-     var statusWeb = document.querySelectorAll('span');
-     for (var i = 0; i < statusWeb.length; i++) {
-        statusWeb[i].innerText = statusArray[i][1];
-      }
-    }
+<div class="bg-modal" id="bg-m">
+    <div class="feedback" id="oop">
+    <span>Opps, the item is currently on loan and unavailable.</span>
+    </div>
+</div>
 
-    document.getElementById("31124057295454").addEventListener("click", doStuff);
+   
+
     
-    function doStuff(){
-    
-      var itemBarcode = document.querySelector('#')
-    
-      google.script.run.checkOut();
-    }
-    </script>
-    <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
-
+    <?!= include("page-js"); ?>
+    <!--JavaScript at end of body for optimized loading-->
+    
   </body>
 </html>
 
