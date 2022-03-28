@@ -12,7 +12,9 @@ At first, working with the IT department, the library mangaged to use a Apps Scr
 
 [Implementing Controlled Digital Lending with Google Drive and Apps Script: A Case Study at the NYU Shanghai Library](https://doi.org/10.23974/ijol.2021.vol6.1.193) is the fruit of this pratice.
 
-This project is similar to the above mentioned approach, but only in the sense that they are both implementations of CDL. This project is a fully-functioning web application that allows patrons to do self-checkout.
+This project is similar to the above mentioned approach, but only in the sense that they are both implementations of CDL. 
+
+It is a fully-functioning single-page web application that allows patrons to do self-checkout. I developed it independently during my free time from around March to June in 2020.
 
 
 ## Highlights
