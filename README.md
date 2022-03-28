@@ -4,7 +4,7 @@ A digital library for CDL (Controlled Digital Lending)
 ## Background
 In early 2020, COVID-19 outbroke. Then Campus closed, as well as the library. 
 
-During the lockdown, Head of Access Service prefer to try out the idea of loaning out some library-owned printed copies as digitized materials, i.e, Controlled Digital Lending (CDL).
+During the lockdown, Head of Access Service preferred to try out the idea of loaning out some library-owned printed copies as digitized materials, i.e, Controlled Digital Lending (CDL).
 
 However, there is no universal implementation of CDL. 
 
@@ -27,6 +27,6 @@ This project is similar to the above mentioned approach, but only in the sense t
 
 ## Disclaimer
 *The books shown in the screenshots above are just for demenstration purposes*.
-The are **NOT** being used by the application. 
+They are **NOT** being used by the application. 
 
 This application was used ONLY for a very short period because the campus reopened later and in-person access was no longer a problem.  
